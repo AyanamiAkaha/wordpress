@@ -26,8 +26,8 @@ function modify_smsapi_menu() {
 }
 
 function action_addons_gateway() {
-	enqueue_script('smsapi-addons-lettercount-js',SMSAPI_ADDONS_PATH."/lettercount.js");
 	action_gateway();
+	wp_enqueue_script('smsapi-addons-lettercount-js',SMSAPI_ADDONS_PATH.'/lettercount.js');
 }
 
 function smsapi_addons_gateway_routing() {
