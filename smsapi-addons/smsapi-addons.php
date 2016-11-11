@@ -10,6 +10,7 @@ define('SMSAPI_ADDONS_PATH',plugin_dir_path(__FILE__));
 define('SMSAPI_PLUGIN_PATH', plugins_url('newsletter-sms-smsapi'));
 
 require_once SMSAPI_PLUGIN_PATH . 'gateway.php';
+require_once SMSAPI_PLUGIN_PATH . 'routing.php';
 
 function modify_smsapi_menu() {
 	$menu = remove_submenu_page('smsapi-settings','smsapi-send-sms');
@@ -24,9 +25,19 @@ function modify_smsapi_menu() {
 	}
 }
 
-function smsapi_addons_gateway_routing() {
-	smsapi_gateway_routing();
+function action_addons_gateway() {
 	enqueue_script('smsapi-addons-lettercount-js',SMSAPI_ADDONS_PATH."/lettercount.js");
+	action_gateway();
+}
+
+function smsapi_addons_gateway_routing() {
+    $recipientsNumbers = session_get_once('gateway_recipients', array());
+
+    try {
+        action_addons_gateway($recipientsNumbers);
+    } catch (\SMSApi\Exception\SmsapiException $error) {
+        handle_smsapi_exception($error);
+    }
 }
 
 add_action('admin_menu', 'modify_smsapi_menu',999);
