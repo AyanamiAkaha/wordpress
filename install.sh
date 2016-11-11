@@ -15,7 +15,8 @@ install_smsapi_addons() {
 }
 
 if [ "x${WP_PLUGIN_DIR}" == "x" ]; then
-	usage();
+	usage
+	exit 1
 fi
 
 # TODO add switch, extend usage for usual scenarios.
