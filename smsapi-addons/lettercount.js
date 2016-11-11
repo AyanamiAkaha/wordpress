@@ -1,28 +1,27 @@
-var counter={
-	counter: function(messageField, counterElement) {
-		// FIXME: implement actual counter
-		counterElement.textContent = messageField.value.length;
-	}
+function counter(counterElement, messageField) {
+	// FIXME: implement actual counter
+	counterElement.textContent = messageField.value.length;
+}
 
-	init: function(){
-		var messageField = document.getElementById('message');
-		if(messageField != null) {
-			var counterEl = document.createElement('P');
-			messageField.insertBefore(counter);
-			messageField.addEventListener(
-				'input',
-				function() {
-					this.counter(messageField, counterEl);
-				},
-				false
-			);
+function init() {
+	var messageField = document.getElementById('message');
+	if(messageField!= null) {
+		var counterEl = document.createElement('P');
+		messageField.parentElement.insertBefore(counterEl,messageField.nextElementSibling);
+		if(messageField.addEventListener) {
+			messageField.addEventListener( 'input', function(){counter(counterEl,messageField);}, false);
+		} else if(messageField.attachEvent) {
+			messageField.attachEvent( 'input', function(){counter(counterEl,messageF);});
+		} else {
+			console.error('unsupported browser');
 		}
 	}
 }
+
 if(window.addEventListener) {
-	window.addEventListener('load', counter.init, false);
+	window.addEventListener('load', init, false);
 } else if(window.attachEvent) {
-	window.attachEvent('onload', counter.init);
+	window.attachEvent('onload', init);
 } else {
 	console.error('unsupported browser!');
 }

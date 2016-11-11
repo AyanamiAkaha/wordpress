@@ -6,7 +6,7 @@ Version:     1.0.0-dev
 Author:	     Ayanami <ayanami@frater260.com>
 */
 defined('ABSPATH') or die('No direct access please.');
-define('SMSAPI_ADDONS_PATH',plugin_dir_path(__FILE__));
+define('SMSAPI_ADDONS_PATH', plugins_url('smsapi-addons'));
 define('SMSAPI_PLUGIN_PATH', plugins_url('newsletter-sms-smsapi'));
 
 require_once SMSAPI_PLUGIN_PATH . 'gateway.php';
