@@ -24,7 +24,7 @@ function modify_smsapi_menu() {
 	}
 }
 
-function smsapi_addons_gateway_routng() {
+function smsapi_addons_gateway_routing() {
 	smsapi_gateway_routing();
 	enqueue_script('smsapi-addons-lettercount-js',SMSAPI_ADDONS_PATH."/lettercount.js");
 }
