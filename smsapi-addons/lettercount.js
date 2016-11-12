@@ -76,31 +76,32 @@ sms_counter.prototype = {
 	get_max_chars: function(ascii) {
 		var max_chars;
 		if (sms_max_parts == 1) {
-			max_chars = (ascii == 1) ? 160 : 70;
+			max_chars = (ascii) ? 160 : 70;
 		} else {
-			max_chars = ((ascii == 1) ? 153 : 67) * sms_max_parts;
+			max_chars = ((ascii) ? 153 : 67) * sms_max_parts;
 		}
 		return max_chars;
 	},
 	get_parts_count: function(sms_length, ascii) {
-		if (ascii == 0) {
+		if (!ascii) {
 			return sms_length <= 70 ? 1 : Math.ceil(sms_length / 67);
 		}
 		return sms_length <= 160 ? 1 : Math.ceil(sms_length / 153);
 	},
 
 	is_ascii: function(str) {
-		return /^\[\u0000-\u007f]$/.test(str);
+		console.log(str);
+		console.log(/^[\u0000-\u007f]*$/.test(str));
+		return /^[\u0000-\u007f]*$/.test(str);
 	},
 
 	count_left_characters: function(ascii, sms_content_length, sms_parts) {
-		var unicode = !ascii;
 		var smsSettings = {},
 		smsPartsCount = sms_parts,
 		smsContentLength = sms_content_length,
 		charactersLeft;
 
-		if (unicode === 1) {
+		if (!ascii) {
 			smsSettings = {
 				singleSmsLength: 70,
 				secondSmsLength: 64,
