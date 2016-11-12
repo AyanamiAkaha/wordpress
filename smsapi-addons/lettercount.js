@@ -1,3 +1,10 @@
+/*
+ * Character counting script for newsletter-sms-smsapi.
+ * 
+ * Copyright (c) 2016 Ayanami <ayanami@frater260.com>
+ * Licensed under the Artistic License 2.0
+ * https://opensource.org/licenses/Artistic-2.0
+ */
 function counter(counterElement, messageField) {
 	// FIXME: implement actual counter
 	counterElement.textContent = messageField.value.length;

@@ -1,9 +1,16 @@
 <?php
 /* 
 Plugin Name: SMSAPI plugin extensions
-Description: Custom extensions to the SMSAPI newsletter plugin, like e.g. counting characters.
+Description: Custom extensions to the Newsletter SMS - SMSAPI 
+plugin, like e.g. counting characters.
 Version:     1.0.0-dev
 Author:	     Ayanami <ayanami@frater260.com>
+Depends:     Newsletter SMS - SMSAPI
+License:     Artistic License 2.0
+
+Copyright (c) 2016 Ayanami <ayanami@frater260.com>
+Licensed under the Artistic License 2.0
+https://opensource.org/licenses/Artistic-2.0
 */
 defined('ABSPATH') or die('No direct access please.');
 define('SMSAPI_ADDONS_PATH', plugins_url('smsapi-addons'));
@@ -11,6 +18,9 @@ define('SMSAPI_PLUGIN_PATH', plugins_url('newsletter-sms-smsapi'));
 
 require_once SMSAPI_PLUGIN_PATH . 'gateway.php';
 require_once SMSAPI_PLUGIN_PATH . 'routing.php';
+
+// TODO activate hook to activate newsletter-sms-smsapi along with this plugin
+// TODO newsletter-sms-smsapi deactivate hook, to also deactivate this plugin
 
 function modify_smsapi_menu() {
 	$menu = remove_submenu_page('smsapi-settings','smsapi-send-sms');
