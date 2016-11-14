@@ -3,7 +3,7 @@
 Plugin Name: SMSAPI plugin extensions
 Description: Custom extensions to the Newsletter SMS - SMSAPI 
 plugin, like e.g. counting characters.
-Version:     1.0.0-rc1
+Version:     1.0.0-rc2
 Author:	     Ayanami <ayanami@frater260.com>
 Depends:     Newsletter SMS - SMSAPI
 License:     Artistic License 2.0
@@ -28,10 +28,16 @@ function modify_smsapi_menu() {
 		add_submenu_page('smsapi-settings',
 			'SMSAPI - sendsms',
 			__('Send SMS', 'smsapi'),
-			'manage_options', 
+			'publish_pages', 
 			'smsapi-revised-sms',
 			'smsapi_addons_gateway_routing'
 		);	
+	} else {
+		add_menu_page(__('Send SMS', 'smsapi'), 'SEND SMS',
+			'publish_pages',
+			'send-sms-editor',
+			'smsapi_addons_gateway_routing'
+		);
 	}
 }
 
