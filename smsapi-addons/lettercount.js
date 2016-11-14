@@ -118,11 +118,11 @@ sms_counter.prototype = {
 			if (smsContentLength >= smsSettings.singleSmsLength) {
 				smsContentLength = smsSettings.singleSmsLength;
 			}
-		} else {
+		} /*else {
 			if (smsContentLength >= sms_max_parts * smsSettings.manySmsLength) {
 				smsContentLength = sms_max_parts * smsSettings.manySmsLength;
 			}
-		}
+		}*/
 
 		if (smsPartsCount === 1) {
 			charactersLeft = smsSettings.singleSmsLength - (smsContentLength);
