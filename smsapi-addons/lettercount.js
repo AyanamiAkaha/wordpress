@@ -177,9 +177,16 @@ sms_counter.prototype = {
 		this.$left = document.getElementById('sms-chars-left');
 
 		// TODO: handle max parts (6), and going over the limit
+		var $send = document.getElementById('settings-form-submit');
 		if(left < 0) {
+			if(!$send.disabled) {
+				$send.disabled = true;
+			}
 			__addClass(this.$left,'red');
 		} else {
+			if($send.disabled) {
+				$send.disabled = false;
+			}
 			__removeClass(this.$left,'red');
 		}
 	},
