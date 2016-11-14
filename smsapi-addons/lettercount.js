@@ -8,6 +8,16 @@
 
 var sms_max_parts = 6;
 
+function __hasClass($,className) {
+	return $.elementClasses.contains(className);
+}
+function __addClass($,className) {
+	$.elementClasses.add(className);
+}
+function __removeClass($,className) {
+	$.elementClasses.remove(className);
+}
+
 sms_counter = function($textarea) {
 	this.$textarea = $textarea;
 	this.$info;
@@ -167,6 +177,11 @@ sms_counter.prototype = {
 		this.$left = document.getElementById('sms-chars-left');
 
 		// TODO: handle max parts (6), and going over the limit
+		if(left < 0) {
+			__addClass(this.$left,'red');
+		} else {
+			__removeClass(this.$left,'red');
+		}
 	},
 	init: function() {
 		console.log(this);
