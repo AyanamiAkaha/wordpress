@@ -37,6 +37,7 @@ function modify_smsapi_menu() {
 
 function action_addons_gateway() {
 	action_gateway();
+	wp_enqueue_style('smsapi-addons-lettercount-css',SMSAPI_ADDONS_PATH.'/charcounter-style.css');
 	wp_enqueue_script('smsapi-addons-lettercount-js',SMSAPI_ADDONS_PATH.'/lettercount.js');
 }
 

@@ -9,13 +9,13 @@
 var sms_max_parts = 6;
 
 function __hasClass($,className) {
-	return $.elementClasses.contains(className);
+	return $.classList.contains(className);
 }
 function __addClass($,className) {
-	$.elementClasses.add(className);
+	$.classList.add(className);
 }
 function __removeClass($,className) {
-	$.elementClasses.remove(className);
+	$.classList.remove(className);
 }
 
 sms_counter = function($textarea) {

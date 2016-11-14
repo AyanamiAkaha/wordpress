@@ -12,6 +12,7 @@ install_smsapi_addons() {
 	/usr/bin/install -o apache -g apache -m 775 -d "${WP_PLUGINS_DIR}/smsapi-addons"
 	/usr/bin/install -o apache -g apache -m 664 'smsapi-addons/smsapi-addons.php' "${WP_PLUGINS_DIR}/smsapi-addons/"
 	/usr/bin/install -o apache -g apache -m 664 'smsapi-addons/lettercount.js' "${WP_PLUGINS_DIR}/smsapi-addons/"
+	/usr/bin/install -o apache -g apache -m 664 'smsapi-addons/charcounter-style.css' "${WP_PLUGINS_DIR}/smsapi-addons/"
 }
 
 if [ "x${WP_PLUGINS_DIR}" = 'x' ]; then
